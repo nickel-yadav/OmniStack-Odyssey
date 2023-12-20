@@ -7,9 +7,9 @@ export default function Header() {
     <header className="bg-black shadow-sm">
       <div className="flex justify-between items-center py-3 px-2 sm:px-4">
         <Link to="/">
-          <h1 className="font-bold text-white text-sm sm:text-lg flex flex-wrap">
-            <span>UrbanScape</span>
-            <span>Realty</span>
+          <h1 className="font-bold text-white text-sm sm:text-lg sm:flex sm:flex-wrap">
+            <span className="block sm:inline">UrbanScape</span>
+            <span className="block sm:inline">Realty</span>
           </h1>
         </Link>
         <form className="bg-white rounded-md p-3 flex items-center">
@@ -20,15 +20,15 @@ export default function Header() {
           />
           <FaArrowRightLong />
         </form>
-        <ul className="flex gap-4 text-white items-center">
+        <ul className="flex sm:gap-4 text-white items-center">
           <Link to="/">
             <li className="hidden sm:inline hover:underline">Home</li>
           </Link>
           <Link to="/about">
-            <li className="hover:underline">About</li>
+            <li className="hidden sm:inline hover:underline">About</li>
           </Link>
-          <Link to="/sign-in">
-            <button className="bg-blue-900 py-1 px-2 rounded-md hover:bg-blue-600">
+          <Link to="/sign-up">
+            <button className="bg-blue-500 py-1 px-2 rounded-md hover:bg-blue-600">
               Sign in
             </button>
           </Link>
