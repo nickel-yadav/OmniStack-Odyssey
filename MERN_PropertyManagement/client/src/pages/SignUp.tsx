@@ -45,7 +45,7 @@ export default function SignUp() {
   return (
     <div className="flex-grow flex justify-center items-start bg-gradient-to-b from-gray-400 to-gray-900">
       <div className="mt-10 md:mt-40 lg:mt-10 w-4/5 lg:w-1/3 p-4 bg-clip-padding backdrop-filter backdrop-blur-3xl border border-gray-100 shadow-lg rounded-lg flex flex-col justify-between bg-white bg-opacity-20">
-        <h2 className="text-center text-white text-2xl py-4">Sign In</h2>
+        <h2 className="text-center text-white text-2xl py-4">Sign Up</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-3">
           <input
             type="text"
