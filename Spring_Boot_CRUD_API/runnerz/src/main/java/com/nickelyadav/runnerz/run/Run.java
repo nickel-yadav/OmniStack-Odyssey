@@ -6,8 +6,7 @@ public record Run(
         Integer id,
         String title,
         LocalDateTime startedOn,
-        LocalDateTime completedOn,
+        LocalDateTime endedOn,
         Integer miles,
         Location location
-
 ) {}
