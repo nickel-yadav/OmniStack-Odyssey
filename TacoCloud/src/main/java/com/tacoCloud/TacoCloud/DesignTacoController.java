@@ -3,6 +3,7 @@ package com.tacoCloud.TacoCloud;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.tacoCloud.TacoCloud.Ingredient.Type;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -31,7 +34,7 @@ public class DesignTacoController {
                 new Ingredient("SLSA", "Salsa", Type.SAUCE),
                 new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
         Type[] types = Ingredient.Type.values();
-        for (Type type: types) {
+        for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
         }
         model.addAttribute("design", new Taco());
@@ -43,7 +46,10 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processDesign (Design design) {
+    public String processDesign(@Valid Taco design, Errors errors) {
+        if (errors.hasErrors()) {
+            return "design";
+        }
         log.info("Processing design:" + design);
         return "redirect:/orders/current";
     }
